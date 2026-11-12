@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniMarket | Luxury Digital Shop</title>
+  <meta name="description" content="MiniMarket — luxury digital store with secure checkout, Telegram contact, and multi-currency payments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">M</div>
+      <div>
+        <h1>MiniMarket</h1>
+        <p data-i18n="tagline">Luxury digital experience</p>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <select id="langSelect" class="select">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="fr">Français</option>
+      </select>
+
+      <button id="themeToggle" class="icon-btn">◐</button>
+      <a class="btn btn-ghost" href="admin.html">Admin</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero glass">
+      <div class="hero-copy">
+        <span class="badge" data-i18n="limited_offer">Limited-time offer</span>
+        <h2 data-i18n="hero_title">Gold-standard digital marketplace</h2>
+        <p data-i18n="hero_text">Premium interface, fast checkout, secure login, and multi-currency payment support.</p>
+
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary" data-i18n="shop_now">Shop now</a>
+          <a href="#contact" class="btn btn-secondary" data-i18n="contact_us">Contact us</a>
+        </div>
+
+        <div class="countdown glass-mini">
+          <span data-i18n="offer_ends_in">Offer ends in</span>
+          <strong id="countdownTimer">00:00:00</strong>
+        </div>
+      </div>
+
+      <div class="hero-card glass-mini">
+        <div class="stat">
+          <span data-i18n="secure_auth">Firebase Auth</span>
+          <strong>ON</strong>
+        </div>
+        <div class="stat">
+          <span data-i18n="payments">Payments</span>
+          <strong>USDT • SOL • EUR</strong>
+        </div>
+        <div class="stat">
+          <span data-i18n="languages">Languages</span>
+          <strong>EN • AR • FR</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="auth" class="grid-2">
+      <div class="glass card">
+        <h3 data-i18n="auth_title">Account</h3>
+        <div id="authStatus" class="muted"></div>
+
+        <div class="form-grid">
+          <input id="emailInput" type="email" class="input" placeholder="Email" />
+          <input id="passwordInput" type="password" class="input" placeholder="Password" />
+        </div>
+
+        <div class="row">
+          <button class="btn btn-primary" id="loginBtn" data-i18n="login">Login</button>
+          <button class="btn btn-secondary" id="signupBtn" data-i18n="signup">Sign up</button>
+          <button class="btn btn-ghost" id="logoutBtn" data-i18n="logout">Logout</button>
+        </div>
+      </div>
+
+      <div class="glass card">
+        <h3 data-i18n="profile_title">Profile</h3>
+        <div id="profileBox" class="profile-box muted" data-i18n="profile_empty">
+          Login to view your profile and orders.
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="section-head">
+        <h3 data-i18n="products_title">Services</h3>
+        <p data-i18n="products_subtitle">Fixed USD prices with automatic conversion.</p>
+      </div>
+
+      <div class="grid-3" id="productGrid"></div>
+    </section>
+
+    <section class="section grid-2">
+      <div class="glass card">
+        <h3 data-i18n="promo_title">Promo code</h3>
+        <div class="row">
+          <input id="promoInput" class="input" placeholder="PROMO" />
+          <button id="applyPromoBtn" class="btn btn-primary" data-i18n="apply">Apply</button>
+        </div>
+        <div id="promoResult" class="muted"></div>
+      </div>
+
+      <div class="glass card">
+        <h3 data-i18n="track_title">Order tracking</h3>
+        <input id="trackInput" class="input" placeholder="Order ID" />
+        <button id="trackBtn" class="btn btn-secondary full" data-i18n="track">Track</button>
+        <div id="trackResult" class="muted"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section grid-2">
+      <div class="glass card">
+        <h3 data-i18n="contact_title">Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:medmsm49@gmail.com">medmsm49@gmail.com</a></p>
+        <p><strong>Telegram:</strong> <a href="https://t.me/Medmsm01" target="_blank">@Medmsm01</a></p>
+      </div>
+
+      <div class="glass card">
+        <h3 data-i18n="faq_title">FAQ</h3>
+        <details><summary>How do I pay?</summary><p>Use USDT TRC20 or Solana.</p></details>
+        <details><summary>Do you offer support?</summary><p>Yes — via Telegram and email.</p></details>
+        <details><summary>Is there order tracking?</summary><p>Yes — every order has a status.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> MiniMarket</p>
+  </footer>
+
+  <div id="orderModal" class="modal hidden">
+    <div class="modal-content glass">
+      <button class="close-btn" id="closeModal">×</button>
+      <h3>Checkout</h3>
+      <div id="checkoutInfo"></div>
+
+      <label class="label">Payment method</label>
+      <select id="paymentSelect" class="input">
+        <option value="USDT">USDT TRC20</option>
+        <option value="SOL">Solana (SOL)</option>
+        <option value="EUR">EUR</option>
+      </select>
+
+      <button id="confirmOrderBtn" class="btn btn-primary full">Confirm order</button>
+    </div>
+  </div>
+</body>
+</html>
