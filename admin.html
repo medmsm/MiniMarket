@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniMarket Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="container admin-page">
+    <div class="glass card">
+      <div class="row space">
+        <h2>MiniMarket Admin</h2>
+        <a href="index.html" class="btn btn-ghost">Back</a>
+      </div>
+
+      <div id="adminGate">
+        <input id="adminEmail" class="input" placeholder="Admin email" />
+        <input id="adminPassword" type="password" class="input" placeholder="Password" />
+        <input id="admin2fa" class="input" placeholder="2FA code" />
+        <button id="adminLoginBtn" class="btn btn-primary full">Login as Admin</button>
+      </div>
+
+      <div id="adminPanel" class="hidden">
+        <div class="grid-3">
+          <div class="metric glass-mini"><span>Profit</span><strong id="profitMetric">$0</strong></div>
+          <div class="metric glass-mini"><span>Orders</span><strong id="ordersMetric">0</strong></div>
+          <div class="metric glass-mini"><span>Clients</span><strong id="clientsMetric">0</strong></div>
+        </div>
+
+        <div class="section">
+          <h3>Order management</h3>
+          <div class="form-grid">
+            <input id="orderName" class="input" placeholder="Client name" />
+            <input id="orderService" class="input" placeholder="Service" />
+            <input id="orderAmount" class="input" type="number" placeholder="Amount USD" />
+            <select id="orderStatus" class="input">
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Completed</option>
+            </select>
+          </div>
+          <button id="saveOrderBtn" class="btn btn-primary">Save Order</button>
+        </div>
+
+        <div class="section">
+          <h3>Search clients</h3>
+          <input id="clientSearch" class="input" placeholder="Search by name or email" />
+          <div id="clientsList"></div>
+        </div>
+
+        <div class="section">
+          <h3>Orders</h3>
+          <div id="ordersList"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
