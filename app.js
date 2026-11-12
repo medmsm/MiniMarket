@@ -1,10 +1,11 @@
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyD2527N9Ei1ukpxbmbXtu8IVwq_G4bspzE",
+  authDomain: "minimarket-medmsm.firebaseapp.com",
+  projectId: "minimarket-medmsm",
+  storageBucket: "minimarket-medmsm.firebasestorage.app",
+  messagingSenderId: "991119463799",
+  appId: "1:991119463799:web:d5e538a99e8a36f5647d72",
+  measurementId: "G-C6DEPVBEJ5"
 };
 
 firebase.initializeApp(firebaseConfig);
