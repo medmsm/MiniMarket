@@ -76,17 +76,17 @@
     <section id="auth" class="grid-2">
       <div class="glass card">
         <h3 data-i18n="auth_title">Account</h3>
-        <div id="authStatus" class="muted"></div>
+        <div id="authStatus" class="muted" aria-live="polite"></div>
 
         <div class="form-grid">
-          <input id="emailInput" type="email" class="input" placeholder="Email" />
-          <input id="passwordInput" type="password" class="input" placeholder="Password" />
+          <input id="emailInput" type="email" class="input" placeholder="Email" autocomplete="email" />
+          <input id="passwordInput" type="password" class="input" placeholder="Password" autocomplete="current-password" />
         </div>
 
         <div class="row">
-          <button class="btn btn-primary" id="loginBtn" data-i18n="login">Login</button>
-          <button class="btn btn-secondary" id="signupBtn" data-i18n="signup">Sign up</button>
-          <button class="btn btn-ghost" id="logoutBtn" data-i18n="logout">Logout</button>
+          <button type="button" class="btn btn-primary" id="loginBtn" data-i18n="login">Login</button>
+          <button type="button" class="btn btn-secondary" id="signupBtn" data-i18n="signup">Sign up</button>
+          <button type="button" class="btn btn-ghost" id="logoutBtn" data-i18n="logout">Logout</button>
         </div>
       </div>
 
@@ -129,7 +129,7 @@
       <div class="glass card">
         <h3 data-i18n="contact_title">Contact</h3>
         <p><strong>Email:</strong> <a href="mailto:medmsm49@gmail.com">medmsm49@gmail.com</a></p>
-        <p><strong>Telegram:</strong> <a href="https://t.me/Medmsm01" target="_blank">@Medmsm01</a></p>
+        <p><strong>Telegram:</strong> <a href="https://t.me/Medmsm01" target="_blank" rel="noopener">@Medmsm01</a></p>
       </div>
 
       <div class="glass card">
